@@ -53,7 +53,7 @@
     .login-button {
       width: 325px;
       padding: 10px;
-      background-color: #062c3f; /* Dark blue */
+      background-color: #062c3f;
       color: white;
       font-weight: bold;
       border: none;
@@ -69,11 +69,10 @@
 <body>
 
   <div class="login-container">
-    <!-- Replace src with your actual logo if needed -->
     <img src="logo.png" alt="PETRO-EXCEL Logo" class="logo" />
     <div class="company-name">PETRO-EXCEL<br />SDN BHD</div>
 
-    <form action="#" method="POST">
+    <form onsubmit="return handleLogin(event)">
       <label for="staff-id">Staff ID:</label>
       <input type="text" id="staff-id" name="staff-id" placeholder="Insert your ID" required />
 
@@ -83,6 +82,22 @@
       <button type="submit" class="login-button">Login</button>
     </form>
   </div>
+
+  <script>
+    function handleLogin(event) {
+      event.preventDefault(); // Prevent actual form submission
+
+      const username = document.getElementById('staff-id').value;
+      const password = document.getElementById('password').value;
+
+      if (username === '123' && password === '123') {
+        // Redirect if credentials are correct
+        window.location.href = 'https://pesbstaffportal-dashboard.netlify.app/'; // Change to your desired URL
+      } else {
+        alert('Invalid Staff ID or Password');
+      }
+    }
+  </script>
 
 </body>
 </html>
